@@ -79,6 +79,24 @@ namespace MeetingRooms.Application.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Reserva não existe ou está cancelada.
+        /// </summary>
+        internal static string Reserve_NotFound {
+            get {
+                return ResourceManager.GetString("Reserve.NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A sala já está reservada para o horário informado.
+        /// </summary>
+        internal static string Reserve_RoomReserved {
+            get {
+                return ResourceManager.GetString("Reserve.RoomReserved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Sala já cadastrada.
         /// </summary>
         internal static string Room_AlreadyRegistered {

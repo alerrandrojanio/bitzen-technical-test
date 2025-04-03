@@ -16,10 +16,17 @@ public class AppDbContext : DbContext
 
         modelBuilder.Entity<User>()
             .Property(user => user.CreatedAt)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP")
             .ValueGeneratedOnAdd();
 
         modelBuilder.Entity<Room>()
             .Property(room => room.CreatedAt)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP")
+            .ValueGeneratedOnAdd();
+
+        modelBuilder.Entity<Reserve>()
+            .Property(room => room.CreatedAt)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP")
             .ValueGeneratedOnAdd();
     }
 

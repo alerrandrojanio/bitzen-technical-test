@@ -123,6 +123,12 @@
   <data name="GetUsers.NoContent" xml:space="preserve">
     <value>Nenhum usuário cadastrado</value>
   </data>
+  <data name="Reserve.NotFound" xml:space="preserve">
+    <value>Reserva não existe ou está cancelada</value>
+  </data>
+  <data name="Reserve.RoomReserved" xml:space="preserve">
+    <value>A sala já está reservada para o horário informado</value>
+  </data>
   <data name="Room.AlreadyRegistered" xml:space="preserve">
     <value>Sala já cadastrada</value>
   </data>

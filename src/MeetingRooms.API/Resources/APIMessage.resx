@@ -129,17 +129,29 @@
   <data name="Error.GenericError" xml:space="preserve">
     <value>Ocorreu um erro interno, tente novamente mais tarde</value>
   </data>
+  <data name="Property.Date.SameDay" xml:space="preserve">
+    <value>As propriedades {0} e {1} devem estar com o mesmo dia</value>
+  </data>
   <data name="Property.Email.Format" xml:space="preserve">
     <value>A propriedade Email está fora do padrão correto</value>
   </data>
   <data name="Property.Empty" xml:space="preserve">
     <value>A propriedade {0} é obrigatória</value>
   </data>
+  <data name="Property.Empty.Dates" xml:space="preserve">
+    <value>As propriedades InitialDate e FinalDate devem ser preenchidas juntas ou serem nulas</value>
+  </data>
+  <data name="Property.Empty.UserId.RoomId" xml:space="preserve">
+    <value>É necessário informar pelo menos um dos campos: UserId ou RoomId</value>
+  </data>
   <data name="Property.GreaterThan" xml:space="preserve">
     <value>O valor da propriedade {0} deve ser maior que {1}</value>
   </data>
   <data name="Property.Invalid.Format" xml:space="preserve">
     <value>O formato da propriedade {0} é inválido</value>
+  </data>
+  <data name="Property.Invalid.Value" xml:space="preserve">
+    <value>O valor da propriedade {0} é inválido</value>
   </data>
   <data name="Property.Length" xml:space="preserve">
     <value>A propriedade {0} deve tamanho exato de {1} caractere(s)</value>

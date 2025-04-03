@@ -1,4 +1,5 @@
 ﻿using MeetingRooms.Domain.Entities.Base;
+using MeetingRooms.Domain.Enums;
 
 namespace MeetingRooms.Domain.Entities;
 
@@ -11,4 +12,6 @@ public class Reserve : BaseEntity
     public DateTime InitialDate { get; set; }
 
     public DateTime FinalDate { get; set; }
+
+    public ReserveStatus Status { get; set; }
 }

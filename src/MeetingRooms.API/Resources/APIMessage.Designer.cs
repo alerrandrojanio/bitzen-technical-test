@@ -97,6 +97,15 @@ namespace MeetingRooms.API.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a As propriedades {0} e {1} devem estar com o mesmo dia.
+        /// </summary>
+        internal static string Property_Date_SameDay {
+            get {
+                return ResourceManager.GetString("Property.Date.SameDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a A propriedade Email está fora do padrão correto.
         /// </summary>
         internal static string Property_Email_Format {
@@ -115,6 +124,24 @@ namespace MeetingRooms.API.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a As propriedades InitialDate e FinalDate devem ser preenchidas juntas ou serem nulas.
+        /// </summary>
+        internal static string Property_Empty_Dates {
+            get {
+                return ResourceManager.GetString("Property.Empty.Dates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a É necessário informar pelo menos um dos campos: UserId ou RoomId.
+        /// </summary>
+        internal static string Property_Empty_UserId_RoomId {
+            get {
+                return ResourceManager.GetString("Property.Empty.UserId.RoomId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O valor da propriedade {0} deve ser maior que {1}.
         /// </summary>
         internal static string Property_GreaterThan {
@@ -129,6 +156,15 @@ namespace MeetingRooms.API.Resources {
         internal static string Property_Invalid_Format {
             get {
                 return ResourceManager.GetString("Property.Invalid.Format", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O valor da propriedade {0} é inválido.
+        /// </summary>
+        internal static string Property_Invalid_Value {
+            get {
+                return ResourceManager.GetString("Property.Invalid.Value", resourceCulture);
             }
         }
         
