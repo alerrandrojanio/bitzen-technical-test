@@ -13,6 +13,14 @@ public class AppDbContext : DbContext
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<User>()
+            .Property(user => user.CreatedAt)
+            .ValueGeneratedOnAdd();
+
+        modelBuilder.Entity<Room>()
+            .Property(room => room.CreatedAt)
+            .ValueGeneratedOnAdd();
     }
 
     public DbSet<User> Users { get; set; }

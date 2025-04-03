@@ -18,8 +18,12 @@ public static class PipelineExtensions
     public static void AddServices(this IServiceCollection services)
     {
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IRoomService, RoomService>();
+        services.AddScoped<IReserveService, ReserveService>();
 
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IRoomRepository, RoomRepository>();
+        services.AddScoped<IReserveRepository, ReserveRepository>();
 
         services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
     }

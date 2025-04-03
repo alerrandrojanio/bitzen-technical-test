@@ -25,6 +25,8 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> UpdateUser(User user)
     {
+        _context.Entry(user).Property(room => room.CreatedAt).IsModified = false;
+
         _context.Users.Update(user);
 
         await _context.SaveChangesAsync();
@@ -41,16 +43,17 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> GetUserById(Guid id)
     {
-
-        User? user = await _context.Users.FindAsync(id);
+        User? user = await _context.Users.AsNoTracking()
+                                         .Where(user => user.Id == id)
+                                         .FirstOrDefaultAsync();
 
         return user;
     }
 
     public async Task<User?> GetUserByEmail(string email)
     {
-
-        User? user = await _context.Users.Where(user => user.Email == email)
+        User? user = await _context.Users.AsNoTracking()
+                                         .Where(user => user.Email == email)
                                          .FirstOrDefaultAsync();
 
         return user;

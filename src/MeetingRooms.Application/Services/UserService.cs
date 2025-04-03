@@ -72,7 +72,7 @@ public class UserService : IUserService
         List<User>? users = await _userRepository.GetUsers();
 
         if (users is null)
-            throw new ServiceException(ApplicationMessage.GetAllUsers_NoContent, HttpStatusCode.NoContent);
+            throw new ServiceException(ApplicationMessage.GetUsers_NoContent, HttpStatusCode.NoContent);
 
         List<GetUsersResponseDTO> getUsersResponseDTO = users.Adapt<List<GetUsersResponseDTO>>();
 

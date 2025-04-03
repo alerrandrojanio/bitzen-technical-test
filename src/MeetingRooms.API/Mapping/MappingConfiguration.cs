@@ -3,6 +3,9 @@ using MeetingRooms.Domain.DTOs.User.Response;
 using MeetingRooms.Domain.DTOs.User;
 using MeetingRooms.Domain.Entities;
 using MeetingRooms.API.Models.User;
+using MeetingRooms.Domain.DTOs.Room;
+using MeetingRooms.Domain.DTOs.Room.Response;
+using MeetingRooms.API.Models.Room;
 
 namespace MeetingRooms.API.Mapping;
 
@@ -19,8 +22,7 @@ public static class MappingConfiguration
 
         TypeAdapterConfig<User, CreateUserResponseDTO>.NewConfig()
             .Map(dest => dest.Id, src => src.Id)
-            .Map(dest => dest.Name, src => src.Name)
-            .Map(dest => dest.CreatedAt, src => src.CreatedAt);
+            .Map(dest => dest.Name, src => src.Name);
         #endregion CreateUser
 
         #region UpdateUser
@@ -48,6 +50,46 @@ public static class MappingConfiguration
             .Map(dest => dest.Id, src => src.Id)
             .Map(dest => dest.Name, src => src.Name)
             .Map(dest => dest.Email, src => src.Email)
+            .Map(dest => dest.CreatedAt, src => src.CreatedAt);
+        #endregion GetUsers
+
+        #region CreateRoom
+        TypeAdapterConfig<CreateRoomDTO, Room>.NewConfig()
+            .Map(dest => dest.Name, src => src.Name)
+            .Map(dest => dest.Capacity, src => src.Capacity)
+            .Map(dest => dest.CreatedAt, src => DateTime.UtcNow);
+
+        TypeAdapterConfig<Room, CreateRoomResponseDTO>.NewConfig()
+            .Map(dest => dest.Id, src => src.Id)
+            .Map(dest => dest.Name, src => src.Name)
+            .Map(dest => dest.Capacity, src => src.Capacity);
+        #endregion CreateRoom
+
+        #region UpdateRoom
+        TypeAdapterConfig<UpdateRoomModel, UpdateRoomDTO>.NewConfig()
+            .Map(dest => dest.Name, src => src.Body!.Name)
+            .Map(dest => dest.Capacity, src => src.Body!.Capacity);
+
+        TypeAdapterConfig<(UpdateRoomDTO updateRoomDTO, Room room), Room >.NewConfig()
+            .Map(dest => dest.Id, src => src.room.Id)
+            .Map(dest => dest.Name, src => src.updateRoomDTO.Name)
+            .Map(dest => dest.Capacity, src => src.updateRoomDTO.Capacity)
+            .Map(dest => dest.CreatedAt, src => src.room.CreatedAt)
+            .Map(dest => dest.UpdatedAt, src => DateTime.UtcNow);
+
+        TypeAdapterConfig<Room, UpdateRoomResponseDTO>.NewConfig()
+            .Map(dest => dest.Id, src => src.Id)
+            .Map(dest => dest.Name, src => src.Name)
+            .Map(dest => dest.Capacity, src => src.Capacity)
+            .Map(dest => dest.UpdatedAt, src => src.UpdatedAt);
+        #endregion UpdateRoom
+
+        #region GetRooms
+        TypeAdapterConfig<Room, GetRoomsResponseDTO>
+            .NewConfig()
+            .Map(dest => dest.Id, src => src.Id)
+            .Map(dest => dest.Name, src => src.Name)
+            .Map(dest => dest.Capacity, src => src.Capacity)
             .Map(dest => dest.CreatedAt, src => src.CreatedAt);
         #endregion GetUsers
     }
