@@ -126,6 +126,9 @@
   <data name="Authorization.Token.Missing" xml:space="preserve">
     <value>O Token não foi informado</value>
   </data>
+  <data name="Error.ConnectionString.Empty" xml:space="preserve">
+    <value>A ConnectionString não pode ser nula</value>
+  </data>
   <data name="Error.GenericError" xml:space="preserve">
     <value>Ocorreu um erro interno, tente novamente mais tarde</value>
   </data>

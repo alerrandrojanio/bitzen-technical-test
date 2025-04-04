@@ -88,6 +88,15 @@ namespace MeetingRooms.API.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A ConnectionString não pode ser nula.
+        /// </summary>
+        internal static string Error_ConnectionString_Empty {
+            get {
+                return ResourceManager.GetString("Error.ConnectionString.Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Ocorreu um erro interno, tente novamente mais tarde.
         /// </summary>
         internal static string Error_GenericError {

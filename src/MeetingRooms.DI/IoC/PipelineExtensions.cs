@@ -4,12 +4,15 @@ using MeetingRooms.Domain.Entities;
 using MeetingRooms.Domain.Interfaces;
 using MeetingRooms.Infrastructure.Configurations;
 using MeetingRooms.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
+using System.Text;
 
 namespace MeetingRooms.DI.IoC;
 
@@ -20,6 +23,7 @@ public static class PipelineExtensions
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IRoomService, RoomService>();
         services.AddScoped<IReserveService, ReserveService>();
+        services.AddScoped<IAuthService, AuthService>();
 
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IRoomRepository, RoomRepository>();
@@ -68,4 +72,24 @@ public static class PipelineExtensions
         return services;
     }
 
+    public static IServiceCollection AddAuthenticationJwt(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+
+                        ValidIssuer = configuration["AuthSettings:Issuer"],
+                        ValidAudience = configuration["AuthSettings:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["AuthSettings:SecretKey"]))
+                    };
+                });
+
+        return services;
+    }
 }

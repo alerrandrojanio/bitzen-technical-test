@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MeetingRooms.Application\MeetingRooms.Application.csproj" />
+<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.14" />    <ProjectReference Include="..\MeetingRooms.Application\MeetingRooms.Application.csproj" />
     <ProjectReference Include="..\MeetingRooms.Infrastructure\MeetingRooms.Infrastructure.csproj" />
   </ItemGroup>
 

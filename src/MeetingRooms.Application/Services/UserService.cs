@@ -78,4 +78,17 @@ public class UserService : IUserService
 
         return getUsersResponseDTO;
     }
+
+    public async Task ValidateUser(ValidateUserDTO validateUserDTO)
+    {
+        User? user = await _userRepository.GetUserByEmail(validateUserDTO.Email!);
+
+        if (user is null)
+            throw new ServiceException(ApplicationMessage.User_Validate_Fail, HttpStatusCode.BadRequest);
+
+        PasswordVerificationResult result = _passwordHasher.VerifyHashedPassword(null!, user.PasswordHash, validateUserDTO.Password!);
+
+        if (result != PasswordVerificationResult.Success)
+            throw new ServiceException(ApplicationMessage.User_Validate_Fail, HttpStatusCode.BadRequest);
+    }
 }

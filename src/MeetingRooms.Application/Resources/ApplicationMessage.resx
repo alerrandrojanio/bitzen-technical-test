@@ -141,4 +141,7 @@
   <data name="User.NotFound" xml:space="preserve">
     <value>Usuário não encontrado</value>
   </data>
+  <data name="User.Validate.Fail" xml:space="preserve">
+    <value>Email ou senha incorretos</value>
+  </data>
 </root>

@@ -12,4 +12,6 @@ public interface IUserService
     Task DeleteUser(DeleteUserDTO deleteUserDTO);
 
     Task<List<GetUsersResponseDTO>> GetUsers();
+
+    Task ValidateUser(ValidateUserDTO validateUserDTO);
 }

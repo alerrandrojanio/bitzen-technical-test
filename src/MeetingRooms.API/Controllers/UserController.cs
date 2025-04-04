@@ -4,6 +4,7 @@ using MeetingRooms.Domain.DTOs.User;
 using MeetingRooms.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MeetingRooms.API.Controllers;
 
@@ -20,6 +21,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
+    [AllowAnonymous]
     public async Task<ActionResult> CreateUser(CreateUserModel createUserModel)
     {
         CreateUserDTO createUserDTO = createUserModel.Adapt<CreateUserDTO>();

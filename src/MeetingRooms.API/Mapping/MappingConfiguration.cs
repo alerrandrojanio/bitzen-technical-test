@@ -2,6 +2,7 @@
 using MeetingRooms.API.Models.Reserve;
 using MeetingRooms.API.Models.Room;
 using MeetingRooms.API.Models.User;
+using MeetingRooms.Domain.DTOs.Auth.Response;
 using MeetingRooms.Domain.DTOs.Reserve;
 using MeetingRooms.Domain.DTOs.Reserve.Response;
 using MeetingRooms.Domain.DTOs.Room;
@@ -151,5 +152,12 @@ public static class MappingConfiguration
             .Map(dest => dest.Status, src => src.Status.ToString())
             .Map(dest => dest.CreatedAt, src => src.CreatedAt);
         #endregion GetReservesByParams
+
+        #region Login
+        TypeAdapterConfig<(string token, DateTime expiration), LoginResponseDTO>
+            .NewConfig()
+            .Map(dest => dest.Token, src => src.token)
+            .Map(dest => dest.Expiration, src => src.expiration);
+        #endregion Login
     }
 }

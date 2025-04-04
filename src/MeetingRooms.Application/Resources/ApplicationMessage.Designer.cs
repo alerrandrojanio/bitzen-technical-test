@@ -131,5 +131,14 @@ namespace MeetingRooms.Application.Resources {
                 return ResourceManager.GetString("User.NotFound", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email ou senha incorretos.
+        /// </summary>
+        internal static string User_Validate_Fail {
+            get {
+                return ResourceManager.GetString("User.Validate.Fail", resourceCulture);
+            }
+        }
     }
 }
